@@ -1,11 +1,3 @@
-const router = require("express").Router();
-
-const apiRoutes = require("./api");
-const homeRoutes = require("./homeRoutes");
-
-router.use("/", homeRoutes);
-router.use("/api", apiRoutes);
-=======
 // Import just the router express
 const router = require('express').Router();
 // Import the index.js from 'api' folder
