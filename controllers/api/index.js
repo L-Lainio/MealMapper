@@ -1,3 +1,11 @@
+const router = require("express").Router();
+const userRoutes = require("./userRoutes");
+const projectRoutes = require("./projectRoutes");
+
+router.use("/users", userRoutes);
+router.use("/projects", projectRoutes);
+
+module.exports = router;
 const router = require('express').Router();
 // Import the routes. This is how we make our routes modular.
 const userRoutes = require('./userRoutes');
