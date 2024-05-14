@@ -96,12 +96,33 @@
         </mxGraphModel>
     </diagram>
     <diagram id="_G7Y2mnA8yVPqgH8Lxil" name="Page-2">
-        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="830" dy="1684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="Iy7f3M6e5TIdQ5P-GXEr-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-                    <mxGeometry x="175" y="60" width="500" height="500" as="geometry"/>
+                    <mxGeometry x="90" y="150" width="620" height="620" as="geometry"/>
+                </mxCell>
+                <mxCell id="7uwJ3zIsB6UCKHGoegL8-1" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-size: 9pt; line-height: 107%; font-family: Helvetica, sans-serif; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;&quot;&gt;Once users sign in or&lt;br/&gt;sign up option to search mealmapper &amp;nbsp;by ingredients.&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry width="190" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7uwJ3zIsB6UCKHGoegL8-4" value="Search" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.search;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="170" width="150" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="NGsQYg8SVfUFNlS7wdiF-1" value="MealMapper Heading and Nav-Bar&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="80" width="620" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="NGsQYg8SVfUFNlS7wdiF-3" value="&lt;p class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-family: Helvetica, sans-serif;&quot;&gt;once ingredients search,&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-family: Helvetica, sans-serif;&quot;&gt;&amp;nbsp;mealmapper will produce multiple&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-family: Helvetica, sans-serif;&quot;&gt;recipes and required ingredients.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-family: Helvetica, sans-serif;&quot;&gt;list&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;font-family: Helvetica, sans-serif;&quot;&gt;(maybe side scroll to choose)&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="290" width="370" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="NGsQYg8SVfUFNlS7wdiF-4" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=-0.008;exitY=0.081;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Iy7f3M6e5TIdQ5P-GXEr-1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="80" y="210" as="sourcePoint"/>
+                        <mxPoint x="60" y="60" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="10" y="110"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
