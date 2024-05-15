@@ -4,28 +4,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <title>MealMapper</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div >
-    <header>
-        <h1>MealMapper</h1>
-      <nav>
-    {{!-- nav bar needs links to home screen, login/signup screen, logout screen, profile screen, calorie counter and meal planner --}}
+  <div class="container">
+    <header class="row">
+      <h1>MealMapper</h1>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Meal Planner</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Calorie Tracker</a>
+              </li>
+              {{#if logged_in}}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login/Signup</a>
+              </li>
+              {{/if}}
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
     <main>
       <!-- Other views will go here -->
       {{{ body }}}
     </main>
-    <footer>
-      {{!-- needs creator info and contact links added --}}
+    <footer class="text-center text-lg-start" style="background-color: #39726f;">
+      <div class="container d-flex justify-content-center py-5">
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+          <a href="https://github.com/L-Lainio" target="_blank"><i class="fa fa-github" style="font-size:36px"></i></a>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+          <a href="https://github.com/iturnberg" target="_blank"><i class="fa fa-github" style="font-size:36px"></i></a>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+          <a href="https://github.com/TurnerHelical" target="_blank"><i class="fa fa-github"
+              style="font-size:36px"></i></a>
+        </button>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Made by UCF Coding Bootcamp Students
+      </div>
+      <!-- Copyright -->
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
