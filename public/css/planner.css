@@ -1,0 +1,54 @@
+.mealplan-info {
+  background-color: #ffc30fcb;
+}
+
+.table-cell {
+  height: 10rem;
+}
+
+.meal-col {
+  width: 4%;
+}
+
+.day-col {
+  width: 10%;
+}
+
+.mealplan-card {
+  height: 95%;
+}
+
+.card-img-top {
+  height: 50%;
+  cursor: pointer;
+}
+
+.search-img {
+  height: 50%;
+}
+
+.card-body {
+  height: 40%;
+}
+
+.edit-btn {
+  background-color: var(--green);
+  border: none;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #8cc73f8e;
+  border: none;
+}
+
+.delete-btn {
+  background-color: red;
+  border: none;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 0, 0, 0.486);
+  border: none;
+}
