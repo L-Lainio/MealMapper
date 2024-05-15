@@ -29,4 +29,14 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  router.get('/tracker', async (req, res) => {
+    try {
+      res.render('tracker', {
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
   module.exports = router;
