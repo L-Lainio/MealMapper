@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const MealPlan = require('../models/MealPlan');
+const MealPlan = require('../../models/MealPlan');
+
+
+
 
 // Save meal plan
 router.post('/save', async (req, res) => {
