@@ -7,6 +7,11 @@ const routes = require('./controllers');
 
 const PORT = process.env.PORT ?? 3000
 
+//routing
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
 app.use(express.static('public'));
 
 const hbs = expbs.create({
