@@ -1,24 +1,40 @@
-require('dotenv').config()
-const express = require('express')
-const app = express()
-const expbs = require('express-handlebars')
+const express = require('express');
+const bodyParser = require('body-parser');
+const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
 const path = require('path');
 const routes = require('./controllers');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({ helpers });
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-const PORT = process.env.PORT ?? 3000
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-//routing
-app.get('/', (req, res) => {
-  res.render('index');
+// Define routes
+app.use(routes);
+
+// Serve static files
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// Static middleware pointing to the public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+// Define route handler for the homepage
+
+
+// Sync database
+sequelize.sync({ force: false }).then(() => {
+    console.log('Database synced');
+}).catch(err => {
+    console.error('Error syncing database:', err);
 });
 
-app.use(express.static('public'));
-
-const hbs = expbs.create({
-  defaultLayout: 'main',
-  extname: '.hbs',
-  layoutsDir: path.join(__dirname, 'views/layouts'),
-  partialsDir: path.join(__dirname, 'views/partials')
-})
-app.get('/', (req, res) => res.send('Hello World!'))
-app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`))
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+});
