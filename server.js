@@ -1,28 +1,31 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./config/database');
-const routes = require('./routes/index');
-const hbs = require('express-handlebars');
-
+const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
+const path = require('path');
+const routes = require('./controllers');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({ helpers });
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Define routes
-app.use('/', routes);
+app.use(routes);
 
 // Serve static files
-app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// Static middleware pointing to the public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('view engine', 'hbs');
-
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 // Define route handler for the homepage
-app.get('/', (req, res) => {
-    res.render('/layouts/main.handlebars');
-});
+
 
 // Sync database
 sequelize.sync({ force: false }).then(() => {
