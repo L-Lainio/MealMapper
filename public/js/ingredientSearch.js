@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const searchForm = document.getElementById('food-search-form');
     const queryInput = document.getElementById('query');
     const searchResults = document.getElementById('search-results');
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nutrientResults = document.getElementById('nutrient-results');
     let selectedFood = null;
     const apiKey = 'hWwJX5rsbjEP7YmIvAqoxw==EX3EJAltDuvRhU9r';
-    
+
     searchForm.addEventListener('submit', async function(event) {
         event.preventDefault();
         const query = queryInput.value;
@@ -62,8 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Sugars: ${(selectedFood.sugar_g * factor).toFixed(2)} g</p>
                 <p>Protein: ${(selectedFood.protein_g * factor).toFixed(2)} g</p>
             `;
-        } else {
-            nutrientResults.innerHTML = '<p>Please select a food and enter a valid amount.</p>';
         }
     });
 });
