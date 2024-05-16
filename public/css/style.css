@@ -42,20 +42,69 @@
 }
 
  /* Styles for the modal */
- .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-.modal-content {
+ .modal-content {
     background-color: white;
-    margin: 20% auto;
+    margin: 10% auto;
     padding: 20px;
+    width: 50%; /* Updated width to 50% */
+    height: 80vh; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically in the center */
+    flex-direction: column; /* Adjust flex-direction to column */
+}
+
+/* Styles for left column (current content) */
+.left-column {
+    width: 45%; /* Adjust width as needed */
+    padding-right: 2.5%;
+}
+
+/* Styles for right column (button) */
+.right-column {
+    width: 45%; /* Adjust width as needed */
+    padding-left: 2.5%;
+    text-align: center; /* Center the button horizontally */
+}
+
+/* Button style */
+.right-column button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-results {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.search-result-item {
+    flex: 0 0 auto;
+    width: 150px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item img {
+    width: 100%;
+    height: auto;
+}
+
+.search-result-item p {
+    margin: 0.5rem 0;
+}
+
     width: 50%;
 }
 
@@ -77,3 +126,4 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
