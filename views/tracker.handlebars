@@ -2,43 +2,119 @@
     <div>
         <h1>Calorie Tracker</h1>
         <p>Find and track how many calories are in the foods you eat!</p>
+        <button id="open-datepicker-btn">Or, go back to a previous date</button>
     </div>
-    <section>
+    <section id="breakfast">
         <h2>Breakfast</h2>
-        {{!-- button to open a modal with a searchbar maybe? --}}
-        <button></button>
+        <button class="btn" data-target="breakfast">Add Food</button>
         <ul>
-            {{!-- append data from api to list --}}
+            <div id="recipe-info-container"></div>
         </ul>
     </section>
 
-    <section>
+    <section id="lunch">
         <h2>Lunch</h2>
-        {{!-- button to open a modal with a searchbar maybe? --}}
-        <button></button>
+        <button class="btn" data-target="lunch">Add Food</button>
         <ul>
-            {{!-- append data from api to list --}}
+            <div id="recipe-info-container"></div>
         </ul>
     </section>
 
-    <section>
+    <section id="dinner">
         <h2>Dinner</h2>
-        {{!-- button to open a modal with a searchbar maybe? --}}
-        <button></button>
+        <button class="btn" data-target="dinner">Add Food</button>
         <ul>
-            {{!-- append data from api to list --}}
+            <div id="recipe-info-container"></div>
         </ul>
     </section>
 
-    <section>
+    <section id="snacks">
         <h2>Snacks</h2>
-        {{!-- button to open a modal with a searchbar maybe? --}}
-        <button></button>
+        <button class="btn" data-target="snacks">Add Food</button>
         <ul>
-            {{!-- append data from api to list --}}
+            <div id="recipe-info-container"></div>
         </ul>
     </section>
-
 </div>
-<script src="js/modal.js"></script>
-<script src="js/ingredientSearch.js"></script>
+
+
+<!-- Input Modal -->
+<div id="food-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="container mt-5">
+            <h1>Search Form</h1>
+            <form id="search-form">
+                <div class="mb-3">
+                    {{!-- keyword input--}}
+                    <label for="ingredientKeywords" class="form-label">Ingredient Keywords</label>
+                    <input type="text" class="form-control" id="ingredientKeywords" placeholder="Enter ingredient keywords">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{!-- calories range input --}}
+                        <label for="minCalories" class="form-label">Min Calories</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="minCalories" placeholder="Min calories">
+                            <span class="input-group-text">kcal</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="maxCalories" class="form-label">Max Calories</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="maxCalories" placeholder="Max calories">
+                            <span class="input-group-text">kcal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        {{!-- protein range input --}}
+                        <label for="minProtein" class="form-label">Min Protein</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="minProtein" placeholder="Min protein">
+                            <span class="input-group-text">g</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="maxProtein" class="form-label">Max Protein</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="maxProtein" placeholder="Max protein">
+                            <span class="input-group-text">g</span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Search</button>
+            </form>
+            <!-- Search results container -->
+            <div id="search-results" class="search-results mt-4"></div>
+        </div>
+        {{!-- append results here --}}
+        <div id="food-details"></div>
+        <button id="add-food-btn">Add</button>
+    </div>
+</div>
+
+<!-- Datepicker Modal -->
+<div id="datepicker-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="form-group">
+            <label for="datepicker" class="form-label">Select a date:</label>
+            <input type="date" id="datepicker" class="form-control">
+        </div>
+    </div>
+</div>
+
+<!-- Recipe Details Modal -->
+<div id="recipe-details-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="recipe-details-content">
+            <!-- Recipe details will be appended here dynamically -->
+        </div>
+    </div>
+</div>
+
+<script src="js/modal2.js"></script>
+<script src="js/recipeSearch.js"></script>

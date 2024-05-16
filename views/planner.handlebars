@@ -1,5 +1,4 @@
-
-    <div>
+ <div>
         <div>
             <h1>Meal Planner</h1>
             <p>Plan out your meals for the week in advance!</p>
@@ -43,22 +42,32 @@
         </section>
         <button id="save-meal-plan">Save Meal Plan</button>
 
-        <div id="search-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <form id="food-search-form">
-                    <input type="text" id="query" placeholder="Search for food">
-                    <button type="submit">Search</button>
-                </form>
-                <div id="search-results"></div>
-                <div id="food-details"></div>
-                <input type="number" id="amount" placeholder="Enter amount in grams">
-                <button id="calculate">Calculate Nutrients</button>
-                <div id="nutrient-results"></div>
-                <button id="add-meal">Add Meal</button>
+ <div id="search-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="row">
+                <div class="col-md-8">
+                    <form id="food-search-form">
+                        <input type="text" id="query" class="form-control" placeholder="Search for food">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                    <div id="search-results"></div>
+                    <div id="food-details"></div>
+                    <div id="nutrient-results"></div>
+                    {{!-- <input type="text" id="serving-size" class="form-control" placeholder="Enter amount in grams">
+                    <button id="calculate" class="btn btn-primary">Calculate Nutrients</button> --}}
+                </div>
+                <div class="col-md-4">
+                    <div id="recipe-results" class="recipe-results"></div>
+                    <button id="recipe-search-btn" class="btn btn-secondary">Recipe Search</button>
+                    <button id="add-meal" class="btn btn-primary">Add Meal</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="/js/modal.js"></script>
     <script src="/js/ingredientSearch.js"></script>
+    <script src="/js/recipeSearch.js"></script>
+</body>
+</html>
