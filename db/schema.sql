@@ -23,3 +23,4 @@ CREATE TABLE IF NOT EXISTS diet (
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+

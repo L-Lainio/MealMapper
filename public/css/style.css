@@ -1,3 +1,46 @@
+:root {
+  --orange: #866150;
+  --green: #6d8a47;
+  --blue: #88b0c0;
+  --yellow: #c4ae6d;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Lato", sans-serif;
+}
+
+.main-container {
+  min-height: 79vh;
+}
+
+.image-container {
+  background-image: url("/images/mm5.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+
+.dashboard-card {
+  height: 80%;
+  color: white;
+  background-color: #f3652388 !important;
+}
+
+.dashboard-btn {
+  background-color: var(--yellow);
+}
+
+.dashboard-btn:hover {
+  background-color: #ffc30f5b;
+}
+
+.meals {
+  background-color: #e9ecef !important;
+}
+
  /* Styles for the modal */
  .modal-content {
     background-color: white;
@@ -61,3 +104,26 @@
 .search-result-item p {
     margin: 0.5rem 0;
 }
+
+    width: 50%;
+}
+
+.login,
+.image {
+    min-height: 100vh
+}
+
+.bg-image {
+    background-image: url("/images/mm5.jpg");
+}
+
+body {
+  background-image: url("/images/mm2.jpg");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
