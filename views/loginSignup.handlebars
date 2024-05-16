@@ -10,15 +10,15 @@
                         <div class="card col-sm-5">
                             <article class="card-body">
                                 <h4 class="card-title mb-4 mt-1">Sign In</h4>
-                                <form>
+                                <form class="login-form">
                                     
                                     <div class="form-group">
-                                        <label>Your Email:</label>
-                                        <input name="" class="form-control" placeholder="Email" type="email">
+                                        <label for="email-login">Your Email:</label>
+                                        <input class="form-input" placeholder="Email" type="email" id="email-login">
                                     </div> <!-- form-group// -->
                                     <div class="form-group">
-                                        <label>Your Password:</label>
-                                        <input class="form-control" placeholder="******" type="password">
+                                        <label for="password-login">Your Password:</label>
+                                        <input class="form-input" placeholder="******" type="password" id="password-login">
                                     </div> <!-- form-group// -->
                                     <div class="form-group">
                                     </div> <!-- form-group// -->
@@ -31,18 +31,18 @@
                         <div class="card col-sm-5">
                             <article class="card-body">
                                 <h4 class="card-title mb-4 mt-1">Sign Up</h4>
-                                <form>
+                                <form class="signup-form">
                                     <div class="form-group">
-                                        <label>Your Name:</label>
-                                        <input name="" class="form-control" placeholder="Email" type="email">
+                                        <label for="name-signup">Your Name:</label>
+                                        <input class="form-input" placeholder="Name" type="text" id="name-signup">
                                     </div> <!-- form-group// -->
                                     <div class="form-group">
-                                        <label>Your Email:</label>
-                                        <input name="" class="form-control" placeholder="Email" type="email">
+                                        <label for="email-signup">Your Email:</label>
+                                        <input class="form-input" placeholder="Email" type="email" id="email-signup">
                                     </div> <!-- form-group// -->
                                     <div class="form-group">
-                                        <label>Your Password:</label>
-                                        <input class="form-control" placeholder="******" type="password">
+                                        <label for="password-signup">Your Password:</label>
+                                        <input class="form-input" placeholder="******" type="password" id="password-signup">
                                     </div> <!-- form-group// -->
                                     <div class="form-group">
                                     </div> <!-- form-group// -->
@@ -54,4 +54,5 @@
                         </div> <!-- card.// -->
 
                     </div>
+                    <script src="./js/login.js"></script>
                 </div>
