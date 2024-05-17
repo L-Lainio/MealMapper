@@ -37,6 +37,11 @@
     </section>
 </div>
 
+<div id="db-btns">
+    <button class="tracker-save-btn">Save Today's Meals</button>
+    <button class="tracker-delete-btn">Delete Today's Meals</button>
+</div>
+
 
 <!-- Input Modal -->
 <div id="food-modal" class="modal">
@@ -102,6 +107,8 @@
         <div class="form-group">
             <label for="datepicker" class="form-label">Select a date:</label>
             <input type="date" id="datepicker" class="form-control">
+            <!-- Button to get tracker data for selected date -->
+            <button id="getTrackerBtn" class="btn">Get Meals</button>
         </div>
     </div>
 </div>
@@ -118,3 +125,5 @@
 
 <script src="js/modal2.js"></script>
 <script src="js/recipeSearch.js"></script>
+<script src="js/trackerTracking.js"></script>
+<script src="js/datepicker.js"></script>

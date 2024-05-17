@@ -24,3 +24,11 @@ CREATE TABLE IF NOT EXISTS diet (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE IF NOT EXISTS tracker (
+    id INTEGER PRIMARY KEY,
+    date TEXT,
+    recipe TEXT,
+    meal_type TEXT,
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+)
