@@ -1,4 +1,4 @@
-// Function to open modal
+// Function to open modal and clear its content
 function openModal(modal) {
     modal.style.display = 'block';
 }
@@ -6,6 +6,15 @@ function openModal(modal) {
 // Function to close modal
 function closeModal(modal) {
     modal.style.display = 'none';
+    // clearModalContent(modal);
+}
+
+// Function to clear modal content
+function clearModalContent(modal) {
+    // Find the modal content element
+    const modalContent = modal.querySelector('.modal-content');
+    // Clear its inner HTML
+    modalContent.innerHTML = '';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -63,4 +72,3 @@ document.addEventListener('DOMContentLoaded', function () {
         event.stopPropagation(); // Prevent click event from bubbling up to the window
     });
 });
-
