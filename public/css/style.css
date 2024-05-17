@@ -134,3 +134,11 @@ h1.m-5.text-center {
   font-size: 6rem;
   font-family: Bold,"Lato", sans-serif;
 }
+
+button {
+  color: black;
+}
+
+.light {
+  color: white;
+}
