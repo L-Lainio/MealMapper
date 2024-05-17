@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     let checkedRecipes = []; // Array to store checked recipes
-    let pageTarget = null; // Variable to store the target section ID
+    let pageTarget = null;
+    let searchResultsMap = {}; // Dictionary to store search results by recipe ID
 
     // Function to handle form submission
     function handleSubmit(event) {
@@ -57,12 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 // Process the response data
                 console.log('Recipe search results:', data);
+                // Store search results in dictionary
+                data.results.forEach(recipe => {
+                    searchResultsMap[recipe.id] = recipe;
+                });
                 appendDataToModal(data.results);
             })
             .catch(error => {
                 console.error('Error fetching recipes:', error);
             });
     }
+
 
     // Function to handle recipe card click
     function handleRecipeCardClick(recipe) {
@@ -121,17 +127,61 @@ document.addEventListener('DOMContentLoaded', function () {
         recipeDetailsContent.appendChild(addButton);
     }
 
+    checkedRecipes = []; // Array to store checked recipes
+    pageTarget = null;
+
+    // Function to handle checkbox change
+    function handleCheckboxChange(event) {
+        const checkbox = event.target;
+        const recipeId = parseInt(checkbox.value);
+
+        if (checkbox.checked) {
+            // Find the recipe in the searchResultsMap
+            const recipe = searchResultsMap[recipeId];
+            if (recipe && !checkedRecipes.some(r => r.id === recipeId)) {
+                // Add recipe to the checkedRecipes array
+                checkedRecipes.push(recipe);
+            }
+        } else {
+            // Remove recipe from the checkedRecipes array
+            checkedRecipes = checkedRecipes.filter(r => r.id !== recipeId);
+        }
+    }
+
     // Function to append recipe to the page
-    function appendRecipeToPage(recipe) {
-        if (!pageTarget) return; // Ensure page target is set
-        const targetSection = document.getElementById(pageTarget);
-        const recipeInfoContainer = targetSection.querySelector('.recipe-info-container');
-        const recipeItem = document.createElement('div');
-        recipeItem.className = 'recipe-item';
-        recipeItem.textContent = recipe.name; // You can customize this as needed
-        recipeInfoContainer.appendChild(recipeItem);
-        // Store the checked recipe
-        checkedRecipes.push(recipe);
+function appendRecipeToPage(recipe) {
+    if (!pageTarget) return; // Ensure page target is set
+    const targetSection = document.getElementById(pageTarget);
+    const recipeInfoContainer = targetSection.querySelector('.recipe-info-container');
+    const recipeItem = document.createElement('div');
+    recipeItem.className = 'recipe-item';
+    recipeItem.textContent = recipe.name;
+
+    // Create the recipe image element
+    const recipeImage = document.createElement('img');
+    recipeImage.src = recipe.thumbnail_url || 'default-image.jpg';
+    recipeImage.alt = recipe.name;
+
+    // Set smaller dimensions for the recipe image
+    recipeImage.style.width = '100px'; // Adjust the width as needed
+    recipeImage.style.height = '100px'; // Adjust the height as needed
+
+    // Event listener for image click to open the recipe modal
+    recipeImage.addEventListener('click', function () {
+        handleRecipeCardClick(recipe); // Call the function to open the modal
+    });
+
+    recipeItem.appendChild(recipeImage);
+    recipeInfoContainer.appendChild(recipeItem);
+}
+
+    // Function to append all selected recipes to the page
+    function appendSelectedRecipes() {
+        checkedRecipes.forEach(recipe => {
+            appendRecipeToPage(recipe);
+        });
+        // Clear the checked recipes array
+        checkedRecipes = [];
     }
 
     // Function to append data to the modal's search-results container
@@ -151,16 +201,16 @@ document.addEventListener('DOMContentLoaded', function () {
             checkbox.id = `recipe-${recipe.id}`; // Set a unique ID for each checkbox
 
             const img = document.createElement('img');
-            img.src = recipe.thumbnail_url || 'default-image.jpg'; // Use a default image if none is available
-            img.alt = recipe.name;
+        img.src = recipe.thumbnail_url || 'default-image.jpg'; // Use a default image if none is available
+        img.alt = recipe.name;
+        img.addEventListener('click', function() {
+            handleRecipeCardClick(recipe); // Call handleRecipeCardClick function when the image is clicked
+        });
 
             const name = document.createElement('p');
             name.textContent = recipe.name;
 
-            // Event listener for image click to open the recipe modal
-            img.addEventListener('click', function () {
-                handleRecipeCardClick(recipe);
-            });
+            checkbox.addEventListener('change', handleCheckboxChange);
 
             item.appendChild(checkbox); // Append the checkbox to the item
             item.appendChild(img);
@@ -172,31 +222,41 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add submit event listener to the form
     document.getElementById('search-form').addEventListener('submit', handleSubmit);
 
-    // Add click event listener to the add food button
-    document.getElementById('add-food-btn').addEventListener('click', function () {
-        // Append all checked recipes to the page
+    // Function to append all selected recipes to the page
+    function appendSelectedRecipes() {
         checkedRecipes.forEach(recipe => {
             appendRecipeToPage(recipe);
         });
         // Clear the checked recipes array
         checkedRecipes = [];
-    });
+    }
 
     // Add click event listener to all buttons with class "btn"
     const btns = document.querySelectorAll('.btn');
     btns.forEach(btn => {
         btn.addEventListener('click', function () {
-            const newPageTarget = this.getAttribute('data-target');
+            const newTargetSectionId = this.getAttribute('data-target');
             // Check if the target section ID is valid
             const validSections = ['breakfast', 'lunch', 'dinner', 'snacks'];
-            if (validSections.includes(newPageTarget)) {
-                console.log('Target section ID:', newPageTarget);
+            if (validSections.includes(newTargetSectionId)) {
+                console.log('Target section ID:', newTargetSectionId);
                 // Update the value only if it's valid
-                pageTarget = newPageTarget;
+                pageTarget = newTargetSectionId;
             } else {
-                console.log('Invalid target section ID:', newPageTarget);
+                console.log('Invalid target section ID:', newTargetSectionId);
                 // Handle invalid target section ID here
             }
         });
     });
+
+    // Add submit event listener to the form
+    document.getElementById('search-form').addEventListener('submit', handleSubmit);
+
+        // Add change event listener to all checkboxes with class "recipe-checkbox"
+        document.querySelectorAll('.recipe-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', handleCheckboxChange);
+        });
+
+        // Add click event listener to the add food button
+    document.getElementById('add-food-btn').addEventListener('click', appendSelectedRecipes);
 });
