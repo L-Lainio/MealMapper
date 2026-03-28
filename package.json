@@ -24,7 +24,7 @@
     "hbs": "^4.2.0",
     "jquery": "^3.7.1",
     "pg": "^8.11.5",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.8"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
